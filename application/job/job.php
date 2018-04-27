@@ -23,7 +23,7 @@ abstract class job{
     public function getIns()
     {
         if(!self::$ins instanceof self){
-            self::$ins = new Pheanstalk\Pheanstalk(config('Pheanstalk_host'));
+            self::$ins = new Pheanstalk\Pheanstalk(config('Pheanstalk_host'),config('Pheanstalk_port'));
         }
         return self::$ins;
     }
