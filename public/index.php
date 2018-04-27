@@ -13,7 +13,7 @@
 // [ 应用入口文件 ]
 namespace think;
 
-echo __DIR__ . '/../thinkphp/base.php';die;
+//echo __DIR__ . '/../thinkphp/base.php';die;
 // 加载基础文件
 require __DIR__ . '/../thinkphp/base.php';
 echo 123;die;
