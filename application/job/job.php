@@ -6,7 +6,6 @@
  * Time: 17:09
  */
 namespace app\job;
-use Pheanstalk\Pheanstalk;
 abstract class job{
     static protected $ins;
     protected $jobs = null;
@@ -23,7 +22,7 @@ abstract class job{
     public function getIns()
     {
         if(!self::$ins instanceof self){
-            self::$ins = new Pheanstalk(config('Pheanstalk_host'));
+            self::$ins = new \Pheanstalk\Pheanstalk(config('Pheanstalk_host'));
         }
 
         return self::$ins;
