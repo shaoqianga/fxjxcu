@@ -15,7 +15,7 @@ namespace think;
 
 //echo __DIR__ . '/../thinkphp/base.php';die;
 // 加载基础文件
-require '/usr/local/nginx/html/workspace/xcu/thinkphp/base.php';
+require __DIR__ . '/../thinkphp/base.php';
 //echo 123;die;
 // 支持事先使用静态方法设置Request对象和Config对象
 
