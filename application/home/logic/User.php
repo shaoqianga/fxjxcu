@@ -4,7 +4,7 @@ namespace app\home\logic;
 
 use think\Model;
 use think\Session;
-
+use app\service\sms;
 class User extends Model
 {
 
@@ -26,9 +26,6 @@ class User extends Model
         {
             return ['err'=>1,'message'=>'用户账号不存在'];
         }
-
-        //登陆成功触发短信队列
-
 
         return ['err'=>0,'message'=>'用户登陆成功'];
     }

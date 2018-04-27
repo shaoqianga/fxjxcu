@@ -7,19 +7,23 @@
  */
 namespace app\job;
 class sms extends job{
-    private $tube = 'sms';
     /**生产消息
      * @param $job
      */
-    public function addJob($job)
+    public function addJob($tube,$job)
     {
-        $this->putJob($this->tube,$job);
+        $this->putJob($tube,$job);
     }
     /**
      *消费消息
      */
-    public function useJob()
+    public function useJob($tube)
     {
-        $this->reserveJob($this->tube);
+        $this->reserveJob($tube);
+    }
+
+    public function run($tube)
+    {
+        echo 'yunxing ';
     }
 }

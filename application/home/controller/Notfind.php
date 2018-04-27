@@ -15,7 +15,7 @@ class Notfind extends Controller
     public function index()
     {
         //
-        return ['err'=>1,'message'=>'不存在的文件路径'];
+        return ['err'=>1,'message'=>'不存在的文件路径','request'];
     }
 
     /**

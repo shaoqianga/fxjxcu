@@ -12,9 +12,10 @@ class Sms extends Controller
      *
      * @return \think\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
+        $sms = new \app\service\sms();
+        $sms->send($request->param('phone'));
     }
 
     /**
