@@ -7,19 +7,24 @@
  */
 namespace app\job;
 class sms extends job{
+
+    public function __construct()
+    {
+        $this->getIns();
+    }
     /**生产消息
      * @param $job
      */
     public function addJob($tube,$job)
     {
-        $this->putJob($tube,$job);
+        self::$ins->putJob($tube,$job);
     }
     /**
      *消费消息
      */
     public function useJob($tube)
     {
-        $this->reserveJob($tube);
+        self::$ins->reserveJob($tube);
     }
 
     public function run($tube)
