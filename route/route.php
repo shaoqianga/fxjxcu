@@ -11,7 +11,7 @@
 Route::get('captcha/:id','home/Captcha/index');
 Route::post('captcha/:id','home/Captcha/read')
         ->middleware('Reqcode');
-Route::rule('user/login','/home/User/index')
+Route::rule('user','/home/User/index')
         ->middleware('Reqlogin');
 
 /*Route::rule('user/edit/:id','home/user/edit')
