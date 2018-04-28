@@ -32,7 +32,7 @@ class sms {
 
         $res = $pheanstalk->useTube(config('beanstalk.SMS'))
             ->put($this->paresData($phone,$this->parseMessage($data)));
-        echo  json(['eee'=>$res]);
+        var_dump($res);
     }
 
     public function checkCode($phone,$code)
