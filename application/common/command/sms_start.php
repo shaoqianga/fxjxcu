@@ -44,10 +44,10 @@ class sms_start extends Command{
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
+            $output->writeln('111');
+           // $data = $job->getData();
 
-            $data = $job->getData();
-            $output->writeln($data);
-            $data = json_decode($data,true);
+           // $data = json_decode($data,true);
 
            /* try{
                 //send sms code
