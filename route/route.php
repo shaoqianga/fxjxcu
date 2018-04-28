@@ -14,7 +14,6 @@ Route::post('captcha/:id','home/Captcha/read')
 Route::rule('user','/home/User/index')
         ->middleware('Reqlogin');
 Route::rule('getSmsCode','home/Sms/index');
-Route::rule('beanstalk','job/Beanstalk/listTube');
 
 /*Route::rule('user/edit/:id','home/user/edit')
     ->middleware(['CheckLogin','CsrfToken']);*/

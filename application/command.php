@@ -11,4 +11,5 @@
 
 return [
     'app\common\command\sms_start',
+    'app\common\command\beanstalk_status',
 ];
