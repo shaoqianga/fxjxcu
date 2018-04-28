@@ -38,7 +38,7 @@ class Sms extends Controller {
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
-
+                sleep(10);
                 //记录发送日志
             }catch (Exception $e)
             {
