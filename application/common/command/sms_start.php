@@ -25,7 +25,7 @@ class sms_start extends Command{
 
     protected function execute(Input $input, Output $output)
     {
-        echo 'asdf';
+        echo 'ccccccccc';
         /*$name = trim($input->getArgument('name'));
         $name = $name ?: 'thinkphp';
 
