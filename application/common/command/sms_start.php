@@ -25,20 +25,21 @@ class sms_start extends Command{
 
     protected function execute(Input $input, Output $output)
     {
+
         $pheanstalk = new \Pheanstalk\Pheanstalk(
             config('beanstalk.host'),
             config('beanstalk.port'));
         while (true){
 
-            if(!$pheanstalk->getConnection()->isServiceListening())
+         /*   if(!$pheanstalk->getConnection()->isServiceListening())
             {
                 $output->writeln('error connecting to beanstalk ,sleeping for 5
             second');
                 sleep(5);
 
                 continue;
-            }
-
+            }*/
+            $output->writeln('start');
             $job = $pheanstalk
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
@@ -51,20 +52,21 @@ class sms_start extends Command{
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
                 $output->writeln('success');
-                sleep(10);
                 //记录发送日志
             }catch (Exception $e)
             {
                 //记录失败发送日志
                 $output->writeln('fail');
             }
+
+            sleep(1);
         }
     }
 
 
     private function send_sms_code($phone,$message){
-
-        header("Content-type: textml; charset=utf-8");
+        return 1;
+        /*header("Content-type: textml; charset=utf-8");
         date_default_timezone_set('PRC');
         $uid = 'CDJS001813';
         $passwd = 'zm0513@';
@@ -75,7 +77,7 @@ class sms_start extends Command{
 
         $result = file_get_contents($gateway);
 
-        return $result;
+        return $result;*/
     }
 
 }
