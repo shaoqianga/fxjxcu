@@ -39,37 +39,36 @@ class sms_start extends Command{
 
                 continue;
             }
-            //$output->writeln(config('beanstalk.SMS'));
 
             $job = $pheanstalk
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
 
-            $data = $job->getData();
+            $dataOrigin = $job->getData();
 
-            $data = json_decode($data,true);
+            $data = json_decode($dataOrigin,true);
 
             try{
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
-                $output->writeln('success');
+                $output->writeln('SUCCESS--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
                 //记录发送日志
             }catch (Exception $e)
             {
                 //记录失败发送日志
-                $output->writeln('fail');
+                $output->writeln('FAIL--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
             }
 
-            sleep(5);
+            sleep(1);
         }
     }
 
 
     private function send_sms_code($phone,$message){
-        return 1;
-        /*header("Content-type: textml; charset=utf-8");
+
+        header("Content-type: textml; charset=utf-8");
         date_default_timezone_set('PRC');
         $uid = 'CDJS001813';
         $passwd = 'zm0513@';
@@ -80,7 +79,7 @@ class sms_start extends Command{
 
         $result = file_get_contents($gateway);
 
-        return $result;*/
+        return $result;
     }
 
 }
