@@ -29,7 +29,7 @@ class sms_start extends Command{
         $pheanstalk = new \Pheanstalk\Pheanstalk(
             config('beanstalk.host'),
             config('beanstalk.port'));
-        while (true){
+
 
          /*   if(!$pheanstalk->getConnection()->isServiceListening())
             {
@@ -63,7 +63,7 @@ class sms_start extends Command{
             }*/
 
             sleep(1);
-        }
+
     }
 
 
