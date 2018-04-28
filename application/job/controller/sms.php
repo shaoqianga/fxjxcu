@@ -28,7 +28,7 @@ class sms extends Controller {
             }
 
             $job = $pheanstalk
-                ->watch(config('beanstalk.SMS_CODE'))
+                ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
 

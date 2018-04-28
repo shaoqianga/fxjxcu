@@ -22,6 +22,6 @@ class beanstalk extends Controller{
             'list'=>$this->ins->listTubes(),
             'used'=>$this->ins->listTubeUsed()
         ];
-        return $data ;
+        return json_encode($data) ;
     }
 }
