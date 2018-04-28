@@ -16,7 +16,7 @@ class Sms extends Controller
     {
         $sms = new \app\service\sms();
         //$sms->send($request->param('phone'));
-        $sms->send(13908109010,['type'=>1,'123433']);
+        $sms->send(13908109010,['type'=>1,'code'=>'123433']);
     }
 
     /**
