@@ -32,8 +32,8 @@ class sms {
 
         $res = $pheanstalk->useTube(config('beanstalk.SMS'))
             ->put($this->paresData($phone,$this->parseMessage($data)));
-        var_dump($pheanstalk->listTubeUsed());
-        var_dump($pheanstalk->stats());
+        //var_dump($pheanstalk->listTubeUsed());
+       // var_dump($pheanstalk->stats());
         var_dump($pheanstalk->statsJob($this->paresData($phone,$this->parseMessage($data))));
     }
 
