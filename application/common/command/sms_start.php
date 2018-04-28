@@ -29,7 +29,7 @@ class sms_start extends Command{
         $pheanstalk = new \Pheanstalk\Pheanstalk(
             config('beanstalk.host'),
             config('beanstalk.port'));
-
+        while (true){
 
          /*   if(!$pheanstalk->getConnection()->isServiceListening())
             {
@@ -39,12 +39,13 @@ class sms_start extends Command{
 
                 continue;
             }*/
-            $output->writeln('start');
-            $job = $pheanstalk
+            $output->writeln(config('beanstalk.SMS'));
+
+          /*  $job = $pheanstalk
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
-            $pheanstalk->delete($job);
+            $pheanstalk->delete($job);*/
             $output->writeln('111');
            // $data = $job->getData();
 
@@ -63,7 +64,7 @@ class sms_start extends Command{
             }*/
 
             sleep(1);
-
+        }
     }
 
 
