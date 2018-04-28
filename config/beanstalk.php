@@ -6,6 +6,6 @@
  * Time: 9:43
  */
 return [
-  'Pheanstalk_host'  => '127.0.0.1',
-   'Pheanstalk_port'=> '11300'
+  'host'  => '127.0.0.1',
+   'port'=> '11300'
 ];

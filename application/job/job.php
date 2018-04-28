@@ -7,6 +7,7 @@
  */
 namespace app\job;
 use Pheanstalk;
+use think\facade\Config;//导入Config 门脸
 abstract class job{
     static protected $ins;
     protected $jobs = null;
@@ -23,7 +24,9 @@ abstract class job{
     public function getIns()
     {
         if(!self::$ins instanceof self){
-            self::$ins = new Pheanstalk\Pheanstalk(config('Pheanstalk_host'),config('Pheanstalk_port'));
+            self::$ins = new Pheanstalk\Pheanstalk(
+                config('beanstalk.host'),
+                config('beanstalk.port'));
         }
         return self::$ins;
     }
