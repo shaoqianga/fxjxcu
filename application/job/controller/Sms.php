@@ -17,6 +17,7 @@ class Sms extends Controller {
             config('beanstalk.host'),
             config('beanstalk.port'));
         while (true){
+
             if(!$pheanstalk->getConnection()->isServiceListening())
             {
                 echo 'error connecting to beanstalk ,sleeping for 5
@@ -38,11 +39,13 @@ class Sms extends Controller {
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
+                echo '执行成功'.PHP_EOL.$data.PHP_EOL;
                 sleep(10);
                 //记录发送日志
             }catch (Exception $e)
             {
                 //记录失败发送日志
+                echo '执行失败'.PHP_EOL.$data.PHP_EOL;
             }
         }
     }
@@ -50,7 +53,6 @@ class Sms extends Controller {
 
     private function send_sms_code($phone,$message){
 
-        echo $phone.$message;die;
         header("Content-type: textml; charset=utf-8");
         date_default_timezone_set('PRC');
         $uid = 'CDJS001813';

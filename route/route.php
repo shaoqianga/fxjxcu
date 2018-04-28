@@ -15,7 +15,7 @@ Route::rule('user','/home/User/index')
         ->middleware('Reqlogin');
 Route::rule('getSmsCode','home/Sms/index');
 Route::rule('beanstalk','job/Beanstalk/listTube');
-Route::rule('start','job/Sms/start');
+
 /*Route::rule('user/edit/:id','home/user/edit')
     ->middleware(['CheckLogin','CsrfToken']);*/
 
