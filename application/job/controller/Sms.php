@@ -5,14 +5,14 @@
  * Date: 2018/4/26
  * Time: 17:28
  */
-namespace app\job;
+namespace app\job\controller;
 use think\Controller;
-use think\Exception;
 
 class Sms extends Controller {
 
     public function start()
     {
+
         $pheanstalk = new \Pheanstalk\Pheanstalk(
             config('beanstalk.host'),
             config('beanstalk.port'));
