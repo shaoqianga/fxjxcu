@@ -44,6 +44,7 @@ class sms_start extends Command{
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
+            $pheanstalk->delete($job);
             $output->writeln('111');
            // $data = $job->getData();
 
