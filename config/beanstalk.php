@@ -8,5 +8,6 @@
 return [
   'host'  => '127.0.0.1',
    'port'=> '11300',
-    'SMS_CODE'=>'SMS_CODE',
+    'SMS'=>'SMS',
+    'FAIL_JOB_PATH'=>__DIR__ . 'fail_job.txt'
 ];
