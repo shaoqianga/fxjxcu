@@ -15,7 +15,8 @@ class Sms extends Controller
     public function index(Request $request)
     {
         $sms = new \app\service\sms();
-        $sms->send($request->param('phone'));
+        //$sms->send($request->param('phone'));
+        $sms->send(12345678909);
     }
 
     /**
