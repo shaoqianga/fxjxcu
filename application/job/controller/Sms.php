@@ -50,6 +50,7 @@ class Sms extends Controller {
 
     private function send_sms_code($phone,$message){
 
+        echo $phone.$message;die;
         header("Content-type: textml; charset=utf-8");
         date_default_timezone_set('PRC');
         $uid = 'CDJS001813';
