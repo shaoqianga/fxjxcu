@@ -31,27 +31,26 @@ class sms_start extends Command{
             config('beanstalk.port'));
         while (true){
 
-         /*   if(!$pheanstalk->getConnection()->isServiceListening())
+            if(!$pheanstalk->getConnection()->isServiceListening())
             {
                 $output->writeln('error connecting to beanstalk ,sleeping for 5
             second');
                 sleep(5);
 
                 continue;
-            }*/
+            }
             //$output->writeln(config('beanstalk.SMS'));
 
-          /*  $job = $pheanstalk
+            $job = $pheanstalk
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
-            $pheanstalk->delete($job);*/
-            //$output->writeln('111');
-           // $data = $job->getData();
 
-           // $data = json_decode($data,true);
+            $data = $job->getData();
 
-           /* try{
+            $data = json_decode($data,true);
+
+            try{
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
@@ -61,10 +60,8 @@ class sms_start extends Command{
             {
                 //记录失败发送日志
                 $output->writeln('fail');
-            }*/
-           $output->writeln(json_encode($pheanstalk->statsTube('SMS')));
-          //  var_dump($pheanstalk->listTubes());
-          //  var_dump($pheanstalk->statsTube('SMS'));
+            }
+
             sleep(5);
         }
     }
