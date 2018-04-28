@@ -46,8 +46,10 @@ class sms_start extends Command{
                 ->reserve();
 
             $data = $job->getData();
+            $output->writeln($data);
             $data = json_decode($data,true);
-            try{
+
+           /* try{
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
                 $pheanstalk->delete($job);
@@ -57,7 +59,7 @@ class sms_start extends Command{
             {
                 //记录失败发送日志
                 $output->writeln('fail');
-            }
+            }*/
 
             sleep(1);
         }
