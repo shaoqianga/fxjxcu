@@ -8,7 +8,7 @@
 namespace app\job;
 use think\Controller;
 
-class beanstalk extends Controller{
+class Beanstalk extends Controller{
     private $ins;
     public function __construct()
     {

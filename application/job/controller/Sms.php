@@ -9,7 +9,7 @@ namespace app\job;
 use think\Controller;
 use think\Exception;
 
-class sms extends Controller {
+class Sms extends Controller {
 
     public function start()
     {
