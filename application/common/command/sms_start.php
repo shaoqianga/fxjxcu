@@ -62,8 +62,8 @@ class sms_start extends Command{
                 //记录失败发送日志
                 $output->writeln('fail');
             }*/
-            $pheanstalk->listTubes();
-            $pheanstalk->statsTube('SMS');
+            var_dump($pheanstalk->listTubes());
+            var_dump($pheanstalk->statsTube('SMS'));
             sleep(5);
         }
     }
