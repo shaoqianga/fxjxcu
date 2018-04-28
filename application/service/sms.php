@@ -13,8 +13,8 @@ class sms {
         //发送验证码
         $code = $this->createCode();
         //放入手机验证码队列
-        (new \app\job\sms())->putJob(config('SMS_CODE'),
-            $this->paresData(config('SMS_CODE'),$phone,$code));
+        (new \app\job\sms())->putJob(config('beanstalk.SMS_CODE'),
+            $this->paresData(config('beanstalk.SMS_CODE'),$phone,$code));
     }
 
     public function checkCode($phone,$code)
