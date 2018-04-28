@@ -39,14 +39,14 @@ class sms_start extends Command{
 
                 continue;
             }*/
-            $output->writeln(config('beanstalk.SMS'));
+            //$output->writeln(config('beanstalk.SMS'));
 
           /*  $job = $pheanstalk
                 ->watch(config('beanstalk.SMS'))
                 ->ignore('default')
                 ->reserve();
             $pheanstalk->delete($job);*/
-            $output->writeln('111');
+            //$output->writeln('111');
            // $data = $job->getData();
 
            // $data = json_decode($data,true);
@@ -62,8 +62,9 @@ class sms_start extends Command{
                 //记录失败发送日志
                 $output->writeln('fail');
             }*/
-
-            sleep(1);
+            $pheanstalk->listTubes();
+            $pheanstalk->statsTube('SMS');
+            sleep(5);
         }
     }
 
