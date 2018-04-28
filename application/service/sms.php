@@ -69,10 +69,10 @@ class sms {
 
         switch ($data['type']){
             case 1:
-                $message = '您的手机验证码为'.$data.'，请输入此号码，如果非本人操作请忽略';
+                $message = '您的手机验证码为'.$data['code'].'，请输入此号码，如果非本人操作请忽略';
                 break;
             case 2:
-                $message = '尊敬的'.$data.'，已有房客选中您的房子啦，
+                $message = '尊敬的'.$data['username'].'，已有房客选中您的房子啦，
                    赶快上线来处理订单吧！详情请点击 www.fxj178.com';
                 break;
             case 3:
@@ -102,7 +102,7 @@ class sms {
                  张开怀抱去享受当地温馨的人文气息吧！详情点击www.fxj178.com';
                 break;
             case 9:
-                $message = '很抱歉，订单'.$data.'您所选择房间的房东暂不能为您提供服务。
+                $message = '很抱歉，订单'.$data['oid'].'您所选择房间的房东暂不能为您提供服务。
                   您可通过“分享家短租平台”APP下单查单';
                 break;
             case 10:
