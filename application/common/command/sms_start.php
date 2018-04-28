@@ -51,14 +51,19 @@ class sms_start extends Command{
 
             try{
                 //send sms code
-                $this->send_sms_code($data['phone'],$data['message']);
-                $pheanstalk->delete($job);
-                $output->writeln('SUCCESS--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
+                if($this->send_sms_code($data['phone'],$data['message']))
+                {
+                    $pheanstalk->delete($job);
+                    $output->writeln('SUCCESS--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
+                }else{
+                    $output->writeln('FAIL--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
+                }
                 //记录发送日志
             }catch (Exception $e)
             {
                 //记录失败发送日志
-                $output->writeln('FAIL--TIME:'.date('Ymd H-i-s').':'.$dataOrigin);
+                $output->writeln('FAIL--TIME:'.date('Ymd H-i-s')
+                    .':'.$dataOrigin.$e->getMessage());
             }
 
             sleep(1);
