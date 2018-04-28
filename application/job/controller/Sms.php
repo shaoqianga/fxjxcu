@@ -33,7 +33,7 @@ class Sms extends Controller {
                 ->reserve();
 
             $data = json_encode($job->getData(),true);
-
+            $data = json_decode($data,true);
             try{
                 //send sms code
                 $this->send_sms_code($data['phone'],$data['message']);
