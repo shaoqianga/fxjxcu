@@ -29,7 +29,7 @@ class sms {
         $pheanstalk = new \Pheanstalk\Pheanstalk(
             config('beanstalk.host'),
             config('beanstalk.port'));
-        var_dump($pheanstalk->stats());die;
+        //var_dump($pheanstalk->stats());die;
         $pheanstalk->useTube(config('beanstalk.SMS'))
             ->put($this->paresData($phone,$this->parseMessage($data)));
     }
